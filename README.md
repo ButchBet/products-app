@@ -14,8 +14,8 @@ This is a package that will let you get the cities of colombia using a departmen
 JavaScript application created to modulate a shopping list, with the name of the product, the quantity, the price per unit, the price per set and the time of addition. It also includes an option to remove a specific item or the entire list.
 
 ### Screenshot
-![Desktop](./src/assets/desktop.png)
-![Mobile](./src/assets/mobile.png)
+![Desktop](./src/assets/images/desktop.png)
+![Mobile](./src/assets/images/mobile.png)
 
 ### Links
 - Solution URL: [GitHub](https://github.com/ButchBet/products-app)
