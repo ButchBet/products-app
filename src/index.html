@@ -6,9 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4290/4290854.png">
     <title>Products App</title>
-    <script src="./App.js" type="module"></script>
 </head>
 <body>
-    Proving the html-webpack plugin and babel loader.
+    <p class="message" id="message">Message</p>
+
+    <section class="container">
+        <form action="#" class="container__form" id="form">
+            <input type="text" placeholder="name" class="container__input" id="name">
+
+            <input type="number" placeholder="quantity" class="container__input" id="quantity">
+
+            <input type="number" placeholder="price" class="container__input" id="price">
+
+            <button class="cotnainer__button" id="add">Add</button>
+        </form>
+
+        <section class="container__products" id="products">
+            <div class="product" id="products">
+                <p class="product__name">Product's name</p>
+                
+                <p class="product__quantity">Product's quantity</p>
+                
+                <p class="product__price">Product's price</p>
+                
+                <p class="product__total">Product's total</p>
+                
+                <button class="product__button" id="delete">Delete</button>
+            </div>
+        </section>
+    </section>
 </body>
 </html>

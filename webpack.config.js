@@ -5,8 +5,12 @@ module.exports = {
     entry: './src/App.js',
    
     output: {
-        path: path.resolve(__dirname, '/dist'),
+        path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
+    },
+
+    resolve: {
+        extensions: ['.js'],
     },
 
     module: {
@@ -24,8 +28,8 @@ module.exports = {
     plugins: [
         new htmlWebpackPlugin({
             inject: true,
-            template: '/src/index.html',
-            filename: '/index.html',
+            template: './src/index.html',
+            filename: './index.html',
         }),
     ]
 }

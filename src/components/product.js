@@ -1,10 +1,10 @@
 export class Product {
-    constructor(name, price, quantity, finalPrice, date) {
+    constructor(name, price, quantity, finalPrice) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.finalPrice = finalPrice;
-        this.date = date;
+
     }
 
     set pName(value) {
