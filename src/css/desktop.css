@@ -1,5 +1,5 @@
 @media (min-width: 900px) {
-    #add {
+    body {
         background: orange;
     }
 }

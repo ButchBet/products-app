@@ -1,64 +1,77 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const miniCssEstractPlugin = require('mini-css-extract-plugin');
+const miniCssExtractPlugin = require('mini-css-extract-plugin');
 const copyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './src/App.js',
-   
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js',
-    },
+  entry: './src/App.js',
 
-    resolve: {
-        extensions: ['.js'],
-    },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'App.js',
+    assetModuleFilename: 'assets/fonts/[name][ext][query]'
+  },
 
-    module: {
-        rules: [
-            {
-                test: /\.m?js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                }
-            },
+  resolve: {
+    extensions: ['.js']
+  },
 
-            {
-                test: /\.css|\.styl$/,
-                use: [
-                    miniCssEstractPlugin.loader,
-                    'css-loader',
-                ]
-            },
 
-            {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
-                generator: {
-                  filename: 'static/images/[hash][ext][query]',
-                },
-              },
-        ]
-    },
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
 
-    plugins: [
-        new htmlWebpackPlugin({
-            inject: true,
-            template: './src/index.html',
-            filename: './index.html',
-        }),
+      {
+        test: /\.css|.styl$/i,
+        use: [miniCssExtractPlugin.loader,
+          'css-loader',
+        ],
+      },
 
-        new miniCssEstractPlugin(),
+      {
+        test: /\.png/,
+        type: 'asset/resource'
+      },
 
-        new copyWebpackPlugin({
-            patterns: [
-                {
-                    from: path.resolve(__dirname, "src", "assets/images"),
-                    to: "assets/images"
-                }
-            ]
-        }),
+      {
+        test: /\.(woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            limit: 10000,
+            mimetype: "application/font-woff",
+            name: "[name].[ext]",
+            outputPath: "./assets/fonts/",
+            publicPath: "./assets/fonts/",
+            esModule: false,
+          },
+        }
+      }
     ]
+  },
+
+  plugins: [
+    new htmlWebpackPlugin({
+      inject: true,
+      template: './src/index.html',
+      filename: './index.html'
+    }),
+
+    new miniCssExtractPlugin(),
+
+    new copyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src", "assets/images"),
+          to: "assets/images"
+        }
+      ]
+    })
+  ]
 }
