@@ -1,5 +1,7 @@
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
+const miniCssEstractPlugin = require('mini-css-extract-plugin');
+const copyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: './src/App.js',
@@ -22,6 +24,22 @@ module.exports = {
                     loader: 'babel-loader',
                 }
             },
+
+            {
+                test: /\.css|\.styl$/,
+                use: [
+                    miniCssEstractPlugin.loader,
+                    'css-loader',
+                ]
+            },
+
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+                generator: {
+                  filename: 'static/images/[hash][ext][query]',
+                },
+              },
         ]
     },
 
@@ -30,6 +48,17 @@ module.exports = {
             inject: true,
             template: './src/index.html',
             filename: './index.html',
+        }),
+
+        new miniCssEstractPlugin(),
+
+        new copyWebpackPlugin({
+            patterns: [
+                {
+                    from: path.resolve(__dirname, "src", "assets/images"),
+                    to: "assets/images"
+                }
+            ]
         }),
     ]
 }

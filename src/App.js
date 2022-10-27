@@ -1,4 +1,4 @@
 import { Product } from './components/product.js';
-
-
-alert('Hello world');
+import './css/desktop.css';
+import './css/tablet.css';
+import './css/styles.css';
