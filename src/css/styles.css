@@ -1,13 +1,21 @@
 @font-face {
     font-family: "Ubuntu";
-    src: url("../assets/fonts/ubuntu-regular.woff2") format("woff2"),
-         url("../assets/fonts/ubuntu-regular.woff") format("woff");
+    src: url("@fonts/ubuntu-regular.woff2") format("woff2"),
+         url("@fonts/ubuntu-regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
 }
 
 :root {
-
+    ---yellow-green: #D9ED92;
+    --light-yello-green: #B5E48C;
+    --light-green: #52B69A;
+    --green: #34A0A4;
+    --light-blue: #168AAD;
+    --light-midle-blue: #1A759F;
+    --blue: #1E6091;
+    --dark-blue: #184E77;
+    --light-red: rgba(255, 0, 0, 0.34);
 }
 
 * {
@@ -18,10 +26,41 @@
 
 html {
     font-family: "Ubuntu";
+    font-size: 62.5%; /* 1rem = 10px */
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
 
-body {
-    background: blue;
+
+/* 
+1. position
+2. box model
+3. typograpy
+4. visual
+5. other
+*/
+
+/* 1 */
+.item {
+    display: flex;
 }
+
+
+.container {
+    position: relative;
+}
+
+.message {
+    position: absolute;
+}
+
+/* 2 */
+.container {
+    padding: 40px 0 0 0;
+}
+/* 3 */
+body {
+    font-size: 1.6rem;
+}
+/* 4 */
+/* 5 */
