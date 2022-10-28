@@ -1,2 +1,35 @@
 @media (min-width: 900px) {
+    body {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-content: center;
+        height: 100vh;
+    }
+
+    .message {
+        position: absolute;
+    }
+
+    .container {
+        max-width: 1000px;
+        max-height: 500px;
+        flex-flow: row nowrap;
+    }
+
+    .container__form {
+        flex-flow: column;
+        justify-content: center;
+    }
+
+    .container__button,
+    .container__input {
+        width: 100%;
+    }
+
+    .container__products {
+        flex-wrap: nowrap;
+        overflow-y: scroll;
+        padding-right: 10px;
+    }    
 }

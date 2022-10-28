@@ -15,7 +15,10 @@
     --light-midle-blue: #1A759F;
     --blue: #1E6091;
     --dark-blue: #184E77;
-    --light-red: rgba(255, 0, 0, 0.34);
+    --red: rgb(255, 0, 0);
+    --light-red: rgba(255, 0, 0, 0.573);
+    --letter1: white;
+    --letter2: #807d85;
 }
 
 * {
@@ -41,26 +44,119 @@ html {
 */
 
 /* 1 */
-.item {
+.container__form,
+.container,
+.product,
+.container__products {
     display: flex;
 }
 
+.container__form {
+    flex-flow: row wrap;
+}
+
+.container,
+.product,
+.container__products {
+    flex-flow: column wrap;
+}
 
 .container {
     position: relative;
 }
 
-.message {
-    position: absolute;
+.hidden {
+    display: none;
 }
 
 /* 2 */
 .container {
-    padding: 40px 0 0 0;
+    padding: 10px 5px;
+    gap: 30px;
+}
+
+/* .container--greaterPadding {
+    padding: 40px 5px;
+} */
+
+.message {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 5px;
+    text-align: center;
+}
+
+.container__form,
+.product {
+    gap: 5px;
+}
+
+.container__button,
+.container__input,
+.product__button {
+    width: 100%;
+}
+
+.container__input {
+    padding: 5px;
+}
+
+.container__products {
+    gap: 12px;
+}
+
+.container__button,
+.product__button {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
 }
 /* 3 */
 body {
     font-size: 1.6rem;
 }
+
+.container__button,
+.container__input,
+.product__button {
+    font-family: "Ubuntu";
+    font-weight: 700;
+}
 /* 4 */
+.error,
+.success,
+.container__button,
+.product__button {
+    color: var(--letter1);
+}
+.error {
+    background: var(--light-red);
+}
+
+.success {
+    background: var(--light-green);
+}
+
+.container__button {
+    background: var(--light-blue);    
+}
+
+.product__button {
+    background: var(--light-red);
+}
 /* 5 */
+.container__button:hover,
+.product__button:hover {
+    cursor: pointer;
+}
+
+.container__button:active,
+.product__button:active {
+    transform: scale(.98);
+}
+
+.container__input:focus {
+    outline: none;
+    color: var(--letter2);
+}
