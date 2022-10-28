@@ -44,7 +44,7 @@ function showMessageInput(name) {
 
         return false;
     } else { // In case that the inputs are with data
-        message.textContent = 'Product added successylly.'
+        message.textContent = 'Product added successfully.'
         message.classList.add('success');
         message.classList.remove('hidden');
 
