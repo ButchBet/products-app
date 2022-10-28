@@ -95,6 +95,4 @@ module.exports = {
       new terserWebpackPlugin(),
     ]
   },
-
-  watch: true,
 }
